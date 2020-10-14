@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css\Menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Car on point</title>
+  </head>
+  <body bgcolor="#ced6e0">
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <div class="background">
+
+    <div class="container-1">
+      <ul>
+        <img src="images/car on point.png" alt="12">
+        <li class="g"><a href="#" > Menu </a> </li>
+        <li><a href="#">Near Me</a> </li>
+        <li><a href="#contact">About</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="index.html">Login</a></li>
+      </ul>
+    </div>
+  </div>
+   <!-- new container starts here -->
+   <div class="container-2">
+     <div class="box-1">
+       <form action="index.html" method="post">
+         <input type="text" name="Username" placeholder="Username">
+         <input type="text" name="duration" placeholder="duration(in hours)">
+         <input type="text" name="location" placeholder="location">
+         <input type="submit"  value="submit">
+       </form>
+     </div>
+   </div>
+ <!-- new container starts here -->
+    <div class="container-3">
+        <font color="black">
+          <h3 >
+            This Site is in its early stages. After the completion of this site,
+            anyone interested in giving their
+            Automobiles for rent can directly
+            connect to the one who wants the Automobile on rent.
+          </h3>
+        </font>
+    </div>
+    <!-- new container starts here -->
+<div class="container-4" >
+  <div class="box">
+    <h1><font color="#1e272e">Select Location</font></h1>
+    <p><font color="#1e272e">Select where u want to take ride</font></p>
+  </div>
+  <div class="box-2">
+    <h1><font color="#1e272e">No Intermediates</font></h1>
+    <p><font color="#1e272e">Contact directly with the seller</font></p>
+  </div>
+  <div class="box-3">
+    <h1><font color="#1e272e">Enjoy Ride</font></h1>
+    <p><font color="#1e272e">You are done</font></p>
+  </div>
+</div>
+<!-- new container starts here -->
+<div class="container-5">
+  <div class="box-5">
+  <div id="map"></div>
+</div>
+  <script>
+
+    var map, infoWindow;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 6
+      });
+      infoWindow = new google.maps.InfoWindow;
+
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('You are here');
+          infoWindow.open(map);
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5iJU4wpExLPXrOu8hhV3eOWdMAuQLSlQ&callback=initMap">
+  </script>
+  <div class="box-4" >
+    <h1>There are 5 vehicles Available around You</h1><br>
+    <h3>1.Yuvraj Angad Singh: 7973560750</h3>
+    <h3>2.Aditya Singh: 8823815564</h3>
+    <h3>3.Prashant Tiwari: 8171109195</h3>
+    <h3>4.Aditya Thakur: 8567451515</h3>
+    <h3>5.Mehul Jain: 7087097401</h3>
+    <input type="submit" name="submit" value="Book Now">
+  </div>
+</div>
+<!-- new container starts here -->
+<div class="container-6">
+  <div class="box-6">
+    <br><br>
+    <h2>Contact</h2>
+    <br><br>
+    <p>Phone: +918566009985 <br><br>
+      Email:  kainths.2206@gmail.com <br><br>
+      fax:    +9101812415678
+    </p>
+    <br>
+    @copyright 2019
+  </div>
+  <div class="box-7" id="contact">
+    <br><br>
+    <h2>About</h2>
+    <p>This site was developed by Sushil Kainth
+    This site allows you to contact with the persons around you who are interested in
+  giving their Automobile on rent. <br>
+  <a href="https://www.facebook.com/sushil.kainth.75" class="fa fa-facebook"></a>
+  <a href="https://twitter.com/SushilKainth3" class="fa fa-twitter"></a>
+  <a href="https://www.instagram.com/_ksushil_/" class="fa fa-instagram"></a>
+  <a href="https://www.pinterest.com/kainths2206/" class="fa fa-pinterest"></a>
+  <a href="https://www.linkedin.com/in/sushil-kainth-b55111185/" class="fa fa-linkedin"></a>
+</p>
+  </div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>
